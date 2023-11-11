@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		
+body {
+  font-family: Arial, sans-serif; /*стиль тексту*/
+  background: linear-gradient(to right, #ccccff, #99ccff);
+  margin: 0;
+}
+
+body {
+  margin-top: 80px; /* Додайте відступ вниз, рівний висоті вашого header */
+}
+
+
+body {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  /* Визначає анімацію для свойства opacity.
+     При зміні прозорості буде використовуватися плавний перехід тривалістю 0.5 секунд
+     з ефектом "ease-in-out", що надає плавний інтерполяційний ефект при зміні значення. */
+}
+
+body.fade-out {
+  opacity: 0;
+  /* Визначає стилі для випадкового класу "fade-out", який додається до елемента body за
+   допомогою JavaScript в момент переходу між сторінками.
+   Коли клас "fade-out" додається, властивість opacity змінюється на 0,
+   що призводить до зникнення елемента з екрану. */
+}
+
+body.slide-up{
+  transition: transform 0.4s ease-in-out;
+  transform: translateY(-100%);
+}
+
+header {
+  position: fixed; /* Зробіть header фіксованим */
+  top: 0; /* Розміщуйте його вгорі сторінки */
+  width: 100%; /* Зробіть ширину 100% екрану */
+  background-color: #000066; /* Колір фону */
+  text-align: center; /*Меню вибору сторінок*/
+  padding: 20px ; /*Розмір фону там де вибір сторінок*/
+  z-index: 1000; /* Задайте z-index для перекриття інших елементів на сторінці */
+}
+
+/*відступи та розмір*/
+ul {
+  font-size: 18px; /*Розмір посилань (головна, галерея, реєстрація)*/
+  padding: 0; /*право ліво*/
+  margin: 0; /*верх них*/
+}
+
+ul li {
+  display: inline; /*текст буде попорядку*/
+  margin: 0 10px; /*відступи між словами в меню*/
+}
+
+ul li a {
+
+  text-decoration: none; /*немає декорації тексту*/
+  color: white; /* Колір тексту посилань */
+}
+
+
+h1 {
+  color: black; /* Колір заголовка h1 */
+  font-size: 40px; /* Розмір шрифту заголовка h1 */
+  font-weight: bold; /* Жирний шрифт для заголовка h1 */
+  position: relative; /* Встановлюємо позицію на relative */
+  right: 0px; /* Переміщуємо текст вліво на 30 пікселів */
+  top: -300px; /*висота, якщо - то текст іде в гору, якщо звичайне число пишемо то текст буде в низ*/
+  font-family: fantasy;
+  letter-spacing: 1px; /* відступ між буквами */
+  font-style: italic; /*Заголовок нахилений*/
+}
+ img {
+  width: 600px; /* Встановлює ширину картинки */
+  height: auto; /* Автоматично обчислює висоту на основі співвідношення сторін */
+  position: relative; /* Встановлюємо позицію на relative */
+  right: 0px; /*право*/
+  top: 110px;/*висота, якщо - то картинка іде в гору, якщо звичайне число пишемо то картинка буде в низ*/
+}
+p {
+  position: relative; /* Встановлюємо позицію на relative */
+  font-size: 28px; /*розмір тексту*/
+  width: 1000px; /*ширина*/
+  left: 800px;
+  top: -250px;
+}
+
+
+	 </style>
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const links = document.querySelectorAll(".page-transition"); /* Знаходить усі елементи  (посилання) на сторінці. */
+
+ /* Для кожного знайденого посилання додає слухача подій для обробки кліку. */
+      links.forEach(link => {
+        link.addEventListener("click", function (event) {
+ /* Спиняє стандартну обробку кліку, щоб уникнути переходу за замовчуванням. */
+          event.preventDefault();
+
+          const transitionDirection = this.getAttribute("data-transition");
+
+ /* Додає клас "fade-out" до елемента <body> для виклику анімації переходу. */
+          document.body.classList.add(transitionDirection);
+
+ /* Отримує значення атрибуту href (URL) клікнутого посилання. */         
+          const href = this.getAttribute("href");
+ /* Встановлює таймер, який затримує перехід до нової сторінки на 0.5 секунди. */         
+          setTimeout(() => {
+            window.location.href = href;
+          }, 400); // Час анімації в мілісекундах (в даному випадку 0.5 секунди)
+        });
+      });
+    });
+  </script>
+
+<title>Греція</title>
+
+</head>
+
+<body>
+	
+<header align = "center">
+
+<ul>
+<li><a href="gr.html" class="page-transition" data-transition="fade-out">Головна</a></li>
+<li><a>|</a></li>
+<li><a href="gallery.html" class="page-transition" data-transition="slide-up">Галерея</a></li>
+<li><a>|</a></li>
+<li><a href="info.html" class="page-transition" data-transition="slide-up">Реєстрація</a></li>
+
+</ul>
+</header>
+
+<img src="more.jpg">
+
+<h1 align="center"> Греція відпочинок </h1>
+
+<p>Греція - це чудова країна для відпочинку,яка пропонує багато різноманітних можливостей для подорожей.</p>
+<p>Ось деякі ідеї та рекомендації для відпочинку в Греції:</p>
+
+<img src="pl.jpg">
+
+<p>Пляжі: Греція славиться своїми чудовими пляжами на берегах Егейського та Іонічного морів. Острів Крит, острови Киклади (наприклад, Міконос та Санторіні) і південне узбережжя Пелопоннеса мають найкращі пляжі.</p>
+
+<img src="ant.jpg">
+
+<p>Античні пам'ятки: Греція багата на античні археологічні пам'ятки, такі як Акрополь в Афінах, античний театр Епідавр та античні міста Мікени і Олімпія.</p>
+
+<img src="ostrov.jpg">
+
+<p>Острівний туризм: Грецькі острови пропонують унікальну атмосферу та красу. Кожен острів має свій характер і може задовольнити будь-які смаки - від розкішних курортів до спокійних традиційних селищ.</p>
+
+<img src="gora.jpg">
+
+<p>Гірський туризм: Грецька материкова частина пропонує чудові гірські регіони для туризму та пішохідних походів. Південна частина Пелопоннеса та гори Пінду вважаються популярними місцями для активного відпочинку.</p>
+
+</body>
+
+</html>
